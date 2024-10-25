@@ -57,6 +57,12 @@ export function Aside(props) {
   }, [updateKey]);
 
   useEffect(() => {
+    return listen("added", () => {
+      sync();
+    });
+  }, []);
+
+  useEffect(() => {
     return listen("pick_random", () => {
       if (items.length <= 1) return;
 
